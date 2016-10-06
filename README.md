@@ -8,6 +8,6 @@ Faculdade de Tecnologia Senac Goiás 2016/2
 
 Professor: Elias Ferreira.
 
-Alunos: Allan B. Guimarães
-        Carlos Antônio
-        Juarez Oliveira
+Alunos: Allan B. Guimarães, 
+        Carlos Antônio, 
+        Juarez Oliveira.
