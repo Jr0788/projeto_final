@@ -1,7 +1,5 @@
 #projeto_final
 
-teste
-
 Projeto final da matéria de Programação para Internet
 
 do curso de Segurança da Informação V módulo
