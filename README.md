@@ -7,4 +7,4 @@ Faculdade de Tecnologia Senac Goiás
 
 Professor: Elias Ferreira.
 
-2016/2
+2016/2.
