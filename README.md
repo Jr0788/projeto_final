@@ -1,10 +1,13 @@
+#projeto_final
 
 Projeto final da matéria de Programação para Internet
 
 do curso de Segurança da Informação V módulo
 
-Faculdade de Tecnologia Senac Goiás
+Faculdade de Tecnologia Senac Goiás 2016/2
 
 Professor: Elias Ferreira.
 
-2016/2.
+Alunos: Allan B. Guimarães
+        Carlos Antônio
+        Juarez Oliveira
