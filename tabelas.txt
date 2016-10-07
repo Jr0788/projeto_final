@@ -1,19 +1,35 @@
-CURSO							ALUNO			
-campo	tipo de dado	observações			campo		tipo de dado	observações	
-numero	int		pk				matricula	char(15)	pk	
-nome	varchar(150)	obrigatório			nome		varchar(80)	obrigatório	
-sigla	char(3)		obrigatório			sexo		char(1)		obrigatório; Domínio: M ou F	
-							dtNasc		date		obrigatório	
-							cidade		varchar(40)	obrigatório; cidade de nascimento	
-							UF		char(2)		obrigatório; sigla do estado onde nasceu	
+Banco: projetointegrador
+usuario BD: senac
+senha: senac123
+
+CURSO			
+campo	tipo de dado	observações			
+numero	int				pk				
+nome	varchar(150)	obrigatório			
+sigla	char(3)			obrigatório			
+
+
+ALUNO
+campo		tipo de dado	observações	
+matricula	char(15)		pk	
+nome		varchar(80)		obrigatório	
+sexo		char(1)			obrigatório; Domínio: M ou F	
+dtNasc		date			obrigatório	
+cidade		varchar(40)		obrigatório; cidade de nascimento	
+UF			char(2)			obrigatório; sigla do estado onde nasceu	
+
 
 DISCIPLINA
 campo	tipo de dado	observações							
-codigo	int		pk							
-nome	varchar(80)	obrigatório				USUÁRIO			
-ch	int		obrigatório; "carga horária"		campo		tipo de dado	observações	
-								login		varchar(20)	pk	
-								senha		varchar(50)	criptografar com MD5; obrigatório	
-								nome		varchar(80)	obrigatório; nome completo	
-								categoria	char(1)		obrigatório; C-coordenador, G-gerente do PI, P-professor	
-								situacao	char(1)		obrigatório; A-ativo, I-inativo	
+codigo	int				pk							
+nome	varchar(80)		obrigatório				
+ch		int				obrigatório; "carga horária"
+
+
+USUÁRIO			
+campo		tipo de dado	observações	
+login		varchar(20)		pk	
+senha		varchar(50)		criptografar com MD5; obrigatório	
+nome		varchar(80)		obrigatório; nome completo	
+categoria	char(1)			obrigatório; C-coordenador, G-gerente do PI, P-professor	
+situacao	char(1)			obrigatório; A-ativo, I-inativo	
