@@ -8,7 +8,7 @@ CREATE TABLE curso(
 CREATE TABLE disciplina(
 	codigo 		int not null,
 	nome 		varchar(80) not null,
-	ch			int not null,
+	ch		int not null,
 	CONSTRAINT pkDisciplina PRIMARY KEY (codigo)
 )
 
@@ -18,7 +18,7 @@ CREATE TABLE aluno(
 	sexo 		char(1) not null,
 	dtnasc 		date not null,
 	cidade 		varchar(40) not null,
-	uf	 		char(2) not null,
+	uf	 	char(2) not null,
 	CONSTRAINT pkAluno PRIMARY KEY (matricula)
 )
 
