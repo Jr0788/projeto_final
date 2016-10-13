@@ -1,33 +1,72 @@
+*Descrição tabular do banco de dados
+*Nome do banco de dados: projetointegrador
+*Usuário do banco de dados: senac
+*Senha do banco de dados: senac123
+
+
 CREATE TABLE curso(
-	numero 		int not null,
-	nome 		varchar(150) not null,
-	sigla 		char(3) not null,
+	numero 		int 		not null,
+	nome 		varchar(150) 	not null,
+	sigla 		char(3) 	not null,
 	CONSTRAINT pkCurso PRIMARY KEY (numero)
 )
 
 CREATE TABLE disciplina(
-	codigo 		int not null,
-	nome 		varchar(80) not null,
-	ch			int not null,
+	codigo 		int 		not null,
+	nome 		varchar(80) 	not null,
+	ch		int 		not null,
 	CONSTRAINT pkDisciplina PRIMARY KEY (codigo)
 )
 
 CREATE TABLE aluno(
-	matricula	char(15) not null,
-	nome 		varchar(80) not null,
-	sexo 		char(1) not null,
-	dtnasc 		date not null,
-	cidade 		varchar(40) not null,
-	uf	 		char(2) not null,
+	matricula	char(15) 	not null,
+	nome 		varchar(80) 	not null,
+	sexo 		char(1) 	not null,
+	dtnasc 		date 		not null,
+	cidade 		varchar(40) 	not null,
+	uf	 	char(2) 	not null,
 	CONSTRAINT pkAluno PRIMARY KEY (matricula)
 )
 
 CREATE TABLE usuario(
-	login 		varchar(20) not null,
-	senha 		varchar(50) not null,
-	nome 		varchar(80) not null,
-	categoria 	char(1) not null,
-	situacao 	char(1) not null,
+	login 		varchar(20) 	not null,
+	senha 		varchar(50) 	not null,
+	nome 		varchar(80) 	not null,
+	categoria 	char(1) 	not null,
+	situacao 	char(1) 	not null,
 	CONSTRAINT pkUsuario PRIMARY KEY (login)
 )
 
+CREATE TABLE projeto(
+	numero		serial 		not null,
+	ano 		int		not null,
+	semestre 	int		not null,
+	modulo 		char(3) 	not null,
+	dt_inicio 	date		not null,
+	dt_termino	date		not null,
+	tema		varchar(100)	not null,
+	descricao	varchar(8000)	not null,
+	num_curso	int		not null references curso(numero),
+	CONSTRAINT pkProjeto PRIMARY KEY (numero)
+)
+
+CREATE TABLE composto(
+	num_proj	int 		not null references projeto(numero),
+	cod_disc 	int		not null references disciplina(codigo),
+	desc_atividade 	varchar(2000)	not null,
+	CONSTRAINT pkComposto PRIMARY KEY (num_proj,cod_disc)
+)
+
+CREATE TABLE grupo(
+	id		int 		not null,
+	nome 		varchar(60)	not null,
+	num_proj 	int		not null references projeto(numero),
+	CONSTRAINT pkGrupo PRIMARY KEY (id)
+)
+
+CREATE TABLE participa(
+	matricula	char(15)	not null references aluno(matricula),
+	id_grupo 	int		not null references grupo(id),
+	nota	 	numeric(3,1),
+	CONSTRAINT pkParticipa PRIMARY KEY (matricula,id_grupo)
+)
