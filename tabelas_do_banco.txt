@@ -1,8 +1,7 @@
-*Descrição tabular do banco de dados
-*Nome do banco de dados: projetointegrador
-*Usuário do banco de dados: senac
-*Senha do banco de dados: senac123
-
+/*Descrição tabular do banco de dados
+Nome do banco de dados: projetointegrador
+Usuário do banco de dados: senac
+Senha do banco de dados: senac123*/
 
 CREATE TABLE curso(
 	numero 		int 		not null,
