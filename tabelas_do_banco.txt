@@ -70,3 +70,36 @@ CREATE TABLE participa(
 	nota	 	numeric(3,1),
 	CONSTRAINT pkParticipa PRIMARY KEY (matricula,id_grupo)
 )
+
+
+
+/*Criação de usuário
+     Usuário do banco de dados: senac
+     Senha do banco de dados: senac123
+*/
+
+/* script apresentado após criação */
+CREATE USER senac WITH
+  LOGIN
+  NOSUPERUSER
+  INHERIT
+  CREATEDB
+  CREATEROLE
+  NOREPLICATION;
+
+/*
+a criação do usuário foi realizada na interface pgAdmin4
+o script apresentado na interface é:
+*/
+
+/*
+CREATE ROLE senac WITH
+   LOGIN
+   NOSUPERUSER
+   CREATEDB
+   CREATEROLE
+   INHERIT
+   NOREPLICATION
+   CONNECTION LIMIT -1
+   PASSWORD 'senac123';
+/*
