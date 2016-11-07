@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>projeto final</title>
+
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+ <link href="css/style.css" rel="stylesheet">
+</head>
+<body> 
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	 <div class="container-fluid">
+	  <div class="navbar-header">
+	   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	   </button>
+	   <a class="navbar-brand" href="#">Tela Alteracao</a>
+	  </div>
+	  <div id="navbar" class="navbar-collapse collapse">
+	   <ul class="nav navbar-nav navbar-right">
+		<li><a href="#">Início</a></li>
+		<li><a href="#">Opções</a></li>
+	   </ul>
+	  </div>
+	 </div>
+	</nav>
+	<br/><br/>
+	
+	<div id="main" class="container-fluid">
+	 <h3 class="page-header">Altera Curso</h3> 
+	</div>
+	<form action="altCurso.php">
+	
+		<div class="row">
+		<h4 class="page-header">&emsp;Informe numero de curso que terá dados alterados:</h4>
+		
+			<div class="form-group col-md-4">
+			   <label for="nNum">&emsp;Numero</label>
+			   <input type="number" class="form-control" name="nNum" id="nNum" min="000" max="999"required/><br/>
+			 </div>
+		</div>
+		
+		<h4 class="page-header">&emsp;Altere os campos desejados:</h4>
+		<br/>
+		<div class="row">
+			 
+			 <div class="form-group col-md-4">
+			   <label for="tNome">&emsp;Nome</label>
+			   <input type="text" class="form-control" name="tNome" id="tNome" size="150" maxlength="150" required/><br/>
+			 </div>
+			 
+			 <div class="form-group col-md-4">
+			   <label for="tSigla">&emsp;Sigla</label>
+			   <input type="text" class="form-control" name="tSigla" id="tSigla" size="8" maxlength="3" required/><br/>
+			 </div>
+	    </div>
+	  
+	  <hr />
+	  
+	  <div id="actions" class="row">
+		<div class="col-md-12">
+		  &emsp;<button type="submit" class="btn btn-primary">Alterar</button>
+		  <a href="login.html" class="btn btn-default">Cancelar</a>
+		</div>
+	  </div>
+	</form>
+
+ <script src="js/jquery.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
