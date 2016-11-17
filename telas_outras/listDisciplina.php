@@ -21,7 +21,6 @@
 			<meta name='viewport' content='width=device-width, initial-scale=1'>
 			<title>projeto final</title>
 			<link href='css/bootstrap.min.css' rel='stylesheet'>
-			<link href='css/style.css' rel='stylesheet'>
 		</head>
 		<script language=javascript src=func_java.js></script>
 		<body>
@@ -30,17 +29,8 @@
 					<div class='navbar-header'>
 						<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
 							<span class='sr-only'>Toggle navigation</span>
-							<span class='icon-bar'></span>
-							<span class='icon-bar'></span>
-							<span class='icon-bar'></span>
 						</button>
 						<a class='navbar-brand' href='#'>Tela Consulta</a>
-					</div>
-					<div id='navbar' class='navbar-collapse collapse'>
-						<ul class='nav navbar-nav navbar-right'>
-						<li><a href='#'>Início</a></li>
-						<li><a href='#'>Opções</a></li>
-						</ul>
 					</div>
 				</div>
 			</nav>

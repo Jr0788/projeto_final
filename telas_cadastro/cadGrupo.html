@@ -14,29 +14,38 @@
 		   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
 			<span class="sr-only">Toggle navigation</span>
 		   </button>
-		   <a class="navbar-brand" href="#">Tela Consulta</a>
+		   <a class="navbar-brand" href="#">Tela Cadastro</a>
 		  </div>
 		 </div>
 		</nav>
 		<br/><br/>
+		
 		<div id="main" class="container-fluid">
-			<h3 class="page-header">Consulta Disciplina</h3>
-		</div>
-		<form action="listDisciplina.php">
-		  <div class="row">
-			<div class="form-group col-md-4">
-				<label for="rOrdem">&emsp;ordenar por:</label><br/>
-					&emsp;<input type="radio" name="rOrdem" id="rOrdem" value="C" required/>Codigo<br/><br/>
-					&emsp;<input type="radio" name="rOrdem" id="rOrdem" value="N" required/>Nome<br/><br/>
-					&emsp;<input type="radio" name="rOrdem" id="rOrdem" value="H" required/>Carga Horaria<br/><br/>
+		 <h3 class="page-header">Cadastro Grupo</h3> 
+		 </div>
+		<form action="cadGrupo.php">
+			<div class="row">
+				<div class="form-group col-md-4">
+				   <label for="nId">&emsp;Id_Grupo</label>
+				   <input type="number" class="form-control" name="nId" id="nId" min="01" max="99"required/><br/>
+				</div>
+				 
+				<div class="form-group col-md-4">
+				   <label for="tNome">&emsp;Nome</label>
+				   <input type="text" class="form-control" name="tNome" id="tNome" size="60" maxlength="60" required/><br/>
+				</div>
+				 
+				<div class="form-group col-md-4">
+				   <label for="nNproj">&emsp;Num_projeto</label>
+				   <input type="number" class="form-control" name="nNproj" id="nNproj" min="000" max="999" required/><br/>
+				</div>
 			</div>
-		  </div>
 		  
 		  <hr />
 		  
 		  <div id="actions" class="row">
 			<div class="col-md-12">
-			  &emsp;<button type="submit" class="btn btn-primary">Listar</button>
+			  &emsp;<button type="submit" class="btn btn-primary">Salvar</button>
 			  <a href="login.html" class="btn btn-default">Cancelar</a>
 			</div>
 		  </div>
