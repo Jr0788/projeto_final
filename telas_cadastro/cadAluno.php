@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ï»¿<?php
 	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
 	$con = pg_connect($strCon) or die ("NÃ£o foi possivel conectar ao servidor PostGreSQL"); 
@@ -8,6 +9,18 @@
 	$nasc = isset($_POST["dtNasc"]) ? $_POST["dtNasc"] : null;
 	$cida = isset($_POST["tCidade"]) ? $_POST["tCidade"] : null;
 	$esta = isset($_POST["tUf"]) ? $_POST["tUf"] : null;
+=======
+<?php
+	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
+	$con = pg_connect($strCon) or die ("Não foi possivel conectar ao servidor PostGreSQL"); 
+
+	$matr = isset($_GET["tMat"]) ? $_GET["tMat"] : null;
+	$nome = isset($_GET["tNome"]) ? $_GET["tNome"] : null;
+	$sexo = isset($_GET["rSex"]) ? $_GET["rSex"] : null;
+	$nasc = isset($_GET["dtNasc"]) ? $_GET["dtNasc"] : null;
+	$cida = isset($_GET["tCidade"]) ? $_GET["tCidade"] : null;
+	$esta = isset($_GET["tUf"]) ? $_GET["tUf"] : null;
+>>>>>>> origin/master
 	
 	echo "<!DOCTYPE html>
 	<html lang=pt-br>
@@ -59,7 +72,11 @@
 					}
 				}else{
 					echo "<br/>
+<<<<<<< HEAD
 					<h3 class=page-header>&emsp;&emsp;<br/><br/>NÃ£o foi possÃ­vel conectar com o banco.</h3>";
+=======
+					<h3 class=page-header>&emsp;&emsp;<br/><br/>Não foi possível conectar com o banco.</h3>";
+>>>>>>> origin/master
 				}
 				echo "<br/>
 				<div id=actions class=row>

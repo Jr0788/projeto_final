@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ï»¿<?php
 	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
 	$con = pg_connect($strCon) or die ("NÃ£o foi possivel conectar ao servidor PostGreSQL"); 
@@ -7,6 +8,17 @@
 	$nome = isset($_POST["tNome"]) ? $_POST["tNome"] : null;
 	$cate = isset($_POST["rCat"]) ? $_POST["rCat"] : null;
 	$situ = isset($_POST["rSit"]) ? $_POST["rSit"] : null;
+=======
+<?php
+	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
+	$con = pg_connect($strCon) or die ("Não foi possivel conectar ao servidor PostGreSQL"); 
+
+	$logi = isset($_GET["tLogin"]) ? $_GET["tLogin"] : null;
+	$senh = isset($_GET["tSenha"]) ? $_GET["tSenha"] : null;
+	$nome = isset($_GET["tNome"]) ? $_GET["tNome"] : null;
+	$cate = isset($_GET["rCat"]) ? $_GET["rCat"] : null;
+	$situ = isset($_GET["rSit"]) ? $_GET["rSit"] : null;
+>>>>>>> origin/master
 	
 	$codi = md5($senh);
 	
@@ -58,7 +70,11 @@
 					}
 				}else{
 					echo "<br/>
+<<<<<<< HEAD
 					<h3 class=page-header>&emsp;&emsp;<br/><br/>NÃ£o foi possÃ­vel conectar com o banco.</h3>";
+=======
+					<h3 class=page-header>&emsp;&emsp;<br/><br/>Não foi possível conectar com o banco.</h3>";
+>>>>>>> origin/master
 				}
 				echo "<br/>
 				<div id=actions class=row>

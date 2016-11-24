@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -178,3 +179,79 @@
 	<script src="../projeto/dist/js/bootValidator.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>projeto final</title>
+
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body> 
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	 <div class="container-fluid">
+	  <div class="navbar-header">
+	   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		<span class="sr-only">Toggle navigation</span>
+	   </button>
+	   <a class="navbar-brand" href="#">Tela Cadastro</a>
+	  </div>
+	 </div>
+	</nav>
+	<br/><br/>
+	
+	<div id="main" class="container-fluid">
+	 <h3 class="page-header">Cadastro Usuario</h3>
+	</div>
+	<form action="cadUsuario.php">
+	  
+	  <div class="row">
+		 <div class="form-group col-md-4">
+		   <label for="tLogin">&emsp;Login</label>
+		   <input type="text" class="form-control" name="tLogin" id="tLogin" size="30" maxlength="20" required/><br/>
+		 </div>
+		 
+		 <div class="form-group col-md-4">
+		   <label for="tSenha">&emsp;Senha</label>
+		   <input type="text" class="form-control" name="tSenha" id="tSenha" size="50" maxlength="50" required/><br/>
+		 </div>
+		 
+	  </div>	  
+	  
+	  <div class="row">
+		 <div class="form-group col-md-4">
+		   <label for="tNome">&emsp;Nome</label>
+		   <input type="text" class="form-control" name="tNome" id="tNome" size="80" maxlength="80" required/><br/>
+		 </div>
+		 
+		 <div class="form-group col-md-4">
+		   <label for="rCat">&emsp;Categoria<br/><br/></label>
+		   <input type="radio" name="rCat" id="rCat" value="C" required/>&emsp;Coordenador
+		   <input type="radio" name="rCat" id="rCat" value="G" required/>&emsp;Gerente do PI
+		   <input type="radio" name="rCat" id="rCat" value="P" required/>&emsp;Professor
+		 </div>
+		 
+		 <div class="form-group col-md-4">
+		   <label for="rSit">&emsp;Situacao<br/><br/></label>
+		   <input type="radio" name="rSit" id="rSit" value="A" required/>&emsp;Ativo
+		   <input type="radio" name="rSit" id="rSit" value="I" required/>&emsp;Inativo
+		 </div>
+	  </div>
+	  
+	  <hr />
+	  
+	  <div id="actions" class="row">
+		<div class="col-md-12">
+		  &emsp;<button type="submit" class="btn btn-primary">Salvar</button>
+		  <a href="login.html" class="btn btn-default">Cancelar</a>
+		</div>
+	  </div>
+	</form>
+
+ <script src="js/jquery.min.js"></script>
+ <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+>>>>>>> origin/master
