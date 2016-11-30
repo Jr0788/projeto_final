@@ -2,12 +2,9 @@
 	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
 	$con = pg_connect($strCon) or die ("Não foi possivel conectar ao servidor PostGreSQL"); 
 
-	$matr = isset($_POST["tMat"]) ? $_POST["tMat"] : null;
-	$nome = isset($_POST["tNome"]) ? $_POST["tNome"] : null;
-	$sexo = isset($_POST["rSex"]) ? $_POST["rSex"] : null;
-	$nasc = isset($_POST["dtNasc"]) ? $_POST["dtNasc"] : null;
-	$cida = isset($_POST["tCidade"]) ? $_POST["tCidade"] : null;
-	$esta = isset($_POST["tUf"]) ? $_POST["tUf"] : null;
+	$mat = isset($_POST["tMat"]) ? $_POST["tMat"] : null;
+	$idg = isset($_POST["nId"]) ? $_POST["nId"] : null;
+	$not = isset($_POST["nNota"]) ? $_POST["nNota"] : null;
 	
 	echo "<!DOCTYPE html>
 <html lang='pt-br'>
@@ -55,19 +52,19 @@
                         <li>
                             <a class='hvr-underline-from-center' href='#'><i class='fa fa-edit fa-fw'></i> Cadastro<span class='fa arrow'></span></a>
                             <ul class='nav nav-second-level'>
-								<li><a class='hvr-shutter-out-horizontal' href='cadUsuario.html'>Usuário</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='cadAluno.html'>Aluno</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='cadCurso.html'>Curso</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='cadDisciplina.html'>Disciplina</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='cadProjeto.html'>Projeto</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='defDisciplina.html'>Definir Disciplina</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='cadGrupo.html'>Grupo</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='defAluno.html'>Definir Alunos</a></li>
                             </ul>
                         </li>
 						<li>
 							<a class='hvr-underline-from-center' href='#'><i class='fa fa-wrench fa-fw'></i> Alteração<span class='fa arrow'></span></a>
 							<ul class='nav nav-second-level'>
-								<li><a class='hvr-shutter-out-horizontal' href='altUsuario.html'>Usuário</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='altAluno.html'>Aluno</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='altCurso.html'>Curso</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='altDisciplina.html'>Disciplina</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altProjeto.html'>Projeto</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altDefDisciplina.html'>Disciplina do Projeto</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altGrupo.html'>Grupo</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altDefAluno.html'>Aluno do Grupo</a></li>
 							</ul>
                         </li>
                     </ul>
@@ -77,53 +74,46 @@
 		<div id='page-wrapper'>
             <div class='row'>
                 <div class='col-lg-12'>
-                    <h1 class='page-header'>Cadastro de Aluno</h1>
+                    <h1 class='page-header'>Alteração de Aluno no Grupo</h1>
                 </div>
             </div>
 			";
 			if($con){
-				$consulta = "SELECT * FROM aluno WHERE matricula = '" . $matr . "' ";
+				$consulta = "SELECT * FROM participa WHERE matricula = '" . $mat . "' AND id_grupo = '" . $idg . "' ";
 				$resultado = pg_query($con, $consulta);
 				$num = pg_num_rows($resultado);
-				
 				if($num > 0){
+					$comando= "UPDATE participa SET nota='"  
+						. $not . "' WHERE matricula='"
+						. $mat . "' AND id_grupo='"
+						. $idg . "' "; 
+					$resultado = pg_query($con, $comando);
 					echo "
 					<div class='row'>
 						<div class='col-lg-12'>
 							<div class='jumbotron'>
 								<center>
 									<h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
-									<p>	Aluno já cadastrado.<br/><br/>
-										Tente novamente.
+									<p>	Alteração realizada com sucesso!<br/><br/>
 									</p>
 								</center>
 							</div>
 						</div>
-					</div>
-					";
+					</div>";
 				}else{
-					$comando= "INSERT INTO aluno(matricula, nome, sexo, dtnasc, cidade, uf) VALUES "  
-						. "('" . $matr . "'," 
-						. "'" . $nome . "',"
-						. "'" . $sexo . "',"
-						. "'" . $nasc . "',"
-						. "'" . $cida . "',"
-						. "'" . $esta . "')";
-						
-					$resultado = pg_query($con, $comando);
-					echo"
+					echo "
 					<div class='row'>
 						<div class='col-lg-12'>
 							<div class='jumbotron'>
 								<center>
 									<h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
-									<p>	Aluno cadastrado com sucesso!<br/>
+									<p>	Registro matrícula + projeto não encontrado.<br/><br/>
+										Tente novamente.
 									</p>
 								</center>
 							</div>
 						</div>
-					</div>
-					";
+					</div>";
 				}
 			}else{
 				echo"
@@ -144,12 +134,24 @@
 			echo "
 			<div class='row'>
 				<div class='col-xs-12'>
-					<a class='btn btn-danger btn3d' type='button' href='cadAluno.html'>Voltar <i class='fa fa-times'></i></a>
+					<a class='btn btn-danger btn3d' type='button' href='defAluno.html'>Voltar <i class='fa fa-times'></i></a>
 					<a class='btn btn-danger btn3d' type='button' href='login.html'>Cancelar <i class='fa fa-times'></i></a>
 				</div>
 			</div>
 		</div>
     </div>
+	
+	<div class='container'>
+		<div class='row'>
+			<hr>
+			<div class='col-lg-12'>
+				<div class='col-md-12'>
+					<p class='muted pull-right'>© 2016 Sistema Acadêmico. All rights reserved</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
     <script src='../vendor/jquery/jquery.min.js'></script>
     <script src='../vendor/bootstrap/js/bootstrap.min.js'></script>
     <script src='../vendor/metisMenu/metisMenu.min.js'></script>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,15 +10,15 @@
 
     <title>Sistema Acadêmico</title>
     <!-- Bootstrap Core CSS -->
-    <link href="../projeto/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="../projeto/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../projeto/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="../projeto/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!-- bootstrapValidator -->
-    <link href="../projeto/vendor/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet">
+    <link href="../vendor/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet">
 </head>
 
 <body>
@@ -46,12 +45,20 @@
                                     </span>
                                     <input type="password" class="form-control" name="pSenha" id="pSenha" placeholder="Senha" required/>
                                 </div>			
-                                <!-- Change this to a button or input when using this as a form -->
 								<button type="submit" class="btn btn-lg btn-success btn-block btn3d">Login <i class="fa fa-sign-in"></i></button>
                             </fieldset>
                         </form>
                     </div>
                 </div>
+				<div class="login-panel panel panel-default">
+					<div class="panel-body">
+						<fieldset>
+							<center>
+								<a class="btn btn-info btn3d" type="button" href="listAlunoCurso.php">Listar Alunos/Curso <i class="fa fa-times"></i></a>
+							</center>
+						</fieldset>
+					</div>
+				</div>
             </div>
         </div>
     </div>
@@ -67,65 +74,19 @@
 	</div>
 
     <!-- jQuery -->
-    <script src="../projeto/vendor/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../projeto/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="../projeto/vendor/metisMenu/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="../projeto/dist/js/sb-admin-2.js"></script>
-	<!-- bootstrapValidator -->
-    <script src="../projeto/vendor/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
-	<script src="../projeto/dist/js/bootValidator.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../vendor/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+	<script src="../dist/js/bootValidator.js"></script>
+
+	<!-- select c.nome"Curso", a.nome"Nome Aluno"
+		from aluno a, participa p, grupo g, projeto pj, curso c
+		where a.matricula = p.matricula and p.id_grupo = g.id and g.num_proj = pj.numero and pj.num_curso = c.numero	
+		group by c.nome, a.nome
+		order by 1,2; -->
 
 </body>
 
-=======
-<!DOCTYPE html>
-<html lang="pt-br">
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>projeto final</title>
-
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-	</head>
-	<body> 
-		<nav class="navbar navbar-inverse navbar-fixed-top">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-						<span class="sr-only">Toggle navigation</span>
-					</button>
-					<a class="navbar-brand" href="#">Sistema de Gerenciamento do Projeto Integrador</a>
-				</div>
-			</div>
-		</nav>
-		<br/><br/>
-		<div id="main" class="container-fluid">
-			<h3 class="page-header">Acesso</h3>
-		</div>
-		
-		<form action="login.php">
-			<div class="row">
-				<div class="form-group col-md-4">
-					<label for="tLogin">&emsp;Usuario</label>
-					<input type="text" class="form-control" name="tLogin" id="tLogin" size="30" maxlength="20" required/><br/>
-					<label for="tSenha">&emsp;Senha</label>
-					<input type="text" class="form-control" name="tSenha" id="tSenha" size="50" maxlength="50" required/>
-				</div>
-			</div>
-			<hr />
-	  
-			<div id="actions" class="row">
-				<div class="col-md-12">
-					&emsp;<button type="submit" class="btn btn-primary">Enviar</button>
-					<a href="login.html" class="btn btn-default">Cancelar</a>
-				</div>
-			</div>
-	    </form>
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-	</body>
->>>>>>> origin/master
 </html>

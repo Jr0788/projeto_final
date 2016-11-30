@@ -2,12 +2,15 @@
 	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
 	$con = pg_connect($strCon) or die ("Não foi possivel conectar ao servidor PostGreSQL"); 
 
-	$matr = isset($_POST["tMat"]) ? $_POST["tMat"] : null;
-	$nome = isset($_POST["tNome"]) ? $_POST["tNome"] : null;
-	$sexo = isset($_POST["rSex"]) ? $_POST["rSex"] : null;
-	$nasc = isset($_POST["dtNasc"]) ? $_POST["dtNasc"] : null;
-	$cida = isset($_POST["tCidade"]) ? $_POST["tCidade"] : null;
-	$esta = isset($_POST["tUf"]) ? $_POST["tUf"] : null;
+	$num = isset($_POST["nNum"]) ? $_POST["nNum"] : null;
+	$ano = isset($_POST["nAno"]) ? $_POST["nAno"] : null;
+	$sem = isset($_POST["nSem"]) ? $_POST["nSem"] : null;
+	$mod = isset($_POST["tMod"]) ? $_POST["tMod"] : null;
+	$dti = isset($_POST["dtIni"]) ? $_POST["dtIni"] : null;
+	$dtf = isset($_POST["dtFim"]) ? $_POST["dtFim"] : null;
+	$tem = isset($_POST["tTema"]) ? $_POST["tTema"] : null;
+	$des = isset($_POST["tDesc"]) ? $_POST["tDesc"] : null;
+	$ncu = isset($_POST["nCcurso"]) ? $_POST["nCcurso"] : null;
 	
 	echo "<!DOCTYPE html>
 <html lang='pt-br'>
@@ -55,19 +58,19 @@
                         <li>
                             <a class='hvr-underline-from-center' href='#'><i class='fa fa-edit fa-fw'></i> Cadastro<span class='fa arrow'></span></a>
                             <ul class='nav nav-second-level'>
-								<li><a class='hvr-shutter-out-horizontal' href='cadUsuario.html'>Usuário</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='cadAluno.html'>Aluno</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='cadCurso.html'>Curso</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='cadDisciplina.html'>Disciplina</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='cadProjeto.html'>Projeto</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='defDisciplina.html'>Definir Disciplina</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='cadGrupo.html'>Grupo</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='defAluno.html'>Definir Alunos</a></li>
                             </ul>
                         </li>
 						<li>
 							<a class='hvr-underline-from-center' href='#'><i class='fa fa-wrench fa-fw'></i> Alteração<span class='fa arrow'></span></a>
 							<ul class='nav nav-second-level'>
-								<li><a class='hvr-shutter-out-horizontal' href='altUsuario.html'>Usuário</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='altAluno.html'>Aluno</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='altCurso.html'>Curso</a></li>
-								<li><a class='hvr-shutter-out-horizontal' href='altDisciplina.html'>Disciplina</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altProjeto.html'>Projeto</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altDefDisciplina.html'>Disciplina do Projeto</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altGrupo.html'>Grupo</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='altDefAluno.html'>Aluno do Grupo</a></li>
 							</ul>
                         </li>
                     </ul>
@@ -77,74 +80,71 @@
 		<div id='page-wrapper'>
             <div class='row'>
                 <div class='col-lg-12'>
-                    <h1 class='page-header'>Cadastro de Aluno</h1>
+                    <h1 class='page-header'>Alteração de projeto</h1>
                 </div>
-            </div>
-			";
+            </div>";
 			if($con){
-				$consulta = "SELECT * FROM aluno WHERE matricula = '" . $matr . "' ";
+				$consulta = "SELECT * FROM projeto WHERE numero = '" . $num . "' AND num_curso = '" . $ncu . "' ";
 				$resultado = pg_query($con, $consulta);
-				$num = pg_num_rows($resultado);
-				
-				if($num > 0){
+				$sel = pg_num_rows($resultado);
+				if($sel > 0){
+					$comando= "UPDATE projeto SET ano='"  
+						. $ano . "', semestre='"
+						. $sem . "', modulo='"
+						. $mod . "', dt_inicio='"
+						. $dti . "', dt_termino='"
+						. $dtf . "', tema='"
+						. $tem . "', descricao='"
+						. $des . "' WHERE numero='"
+						. $num . "' AND num_curso='"
+						. $ncu . "'"; 
+					$resultado = pg_query($con, $comando);
 					echo "
 					<div class='row'>
 						<div class='col-lg-12'>
 							<div class='jumbotron'>
 								<center>
 									<h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
-									<p>	Aluno já cadastrado.<br/><br/>
-										Tente novamente.
+									<p>	Projeto alterado com sucesso!<br/><br/>
 									</p>
 								</center>
 							</div>
 						</div>
-					</div>
-					";
+					</div>";
 				}else{
-					$comando= "INSERT INTO aluno(matricula, nome, sexo, dtnasc, cidade, uf) VALUES "  
-						. "('" . $matr . "'," 
-						. "'" . $nome . "',"
-						. "'" . $sexo . "',"
-						. "'" . $nasc . "',"
-						. "'" . $cida . "',"
-						. "'" . $esta . "')";
-						
-					$resultado = pg_query($con, $comando);
-					echo"
+					echo "
 					<div class='row'>
 						<div class='col-lg-12'>
 							<div class='jumbotron'>
 								<center>
 									<h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
-									<p>	Aluno cadastrado com sucesso!<br/>
+									<p>	Projeto não encontrado no curso informado.<br/><br/>
+										Tente novamente.
 									</p>
 								</center>
 							</div>
 						</div>
-					</div>
-					";
+					</div>";
 				}
 			}else{
-				echo"
-					<div class='row'>
-						<div class='col-lg-12'>
-							<div class='jumbotron'>
-								<center>
-									<h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
-									<p>	Não foi possível conectar com o banco.<br/><br/>
-										Tente novamente.
-									</p>
-								</center>
-							</div>
+				echo "
+				<div class='row'>
+					<div class='col-lg-12'>
+						<div class='jumbotron'>
+							<center>
+								<h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
+								<p>	Não foi possível conectar com o banco.<br/><br/>
+									Tente novamente.
+								</p>
+							</center>
 						</div>
 					</div>
-				";
+				</div>";
 			}
 			echo "
 			<div class='row'>
 				<div class='col-xs-12'>
-					<a class='btn btn-danger btn3d' type='button' href='cadAluno.html'>Voltar <i class='fa fa-times'></i></a>
+					<a class='btn btn-danger btn3d' type='button' href='cadProjeto.html'>Voltar <i class='fa fa-times'></i></a>
 					<a class='btn btn-danger btn3d' type='button' href='login.html'>Cancelar <i class='fa fa-times'></i></a>
 				</div>
 			</div>

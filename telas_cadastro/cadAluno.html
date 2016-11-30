@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,15 +11,15 @@
     <title>Sistema Acadêmico</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../projeto/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- MetisMenu CSS -->
-    <link href="../projeto/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="../projeto/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="../projeto/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!-- bootstrapValidator -->
-    <link href="../projeto/vendor/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet">
+    <link href="../vendor/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet">
 </head>
 
 <body>
@@ -56,7 +55,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a class="hvr-underline-from-center" href="index.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                            <a class="hvr-underline-from-center" href="login.html"><i class="fa fa-home fa-fw"></i> Home</a>
                         </li>
                         <li>
                             <a class="hvr-underline-from-center" href="#"><i class="fa fa-edit fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
@@ -141,7 +140,7 @@
 														</div>
 														<div class="col-xs-3">
 															<label for="tUf">UF *</label>
-															<select class="form-control" name="tUf" id="tUf">
+															<select class="form-control" name="tUf" id="tUf" required/>
 																<option selected="selected" value="UF" disabled>UF</option>
 																<option value="AC">AC</option>
 																<option value="AL">AL</option>
@@ -198,94 +197,15 @@
     <!-- /#wrapper --> 
 
     <!-- jQuery -->
-    <script src="../projeto/vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
-    <script src="../projeto/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="../projeto/vendor/metisMenu/metisMenu.min.js"></script>
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
     <!-- Custom Theme JavaScript -->
-    <script src="../projeto/dist/js/sb-admin-2.js"></script>
+    <script src="../dist/js/sb-admin-2.js"></script>
 	<!-- bootstrapValidator -->
-    <script src="../projeto/vendor/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
-	<script src="../projeto/dist/js/bootValidator.js"></script>
+    <script src="../vendor/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
+	<script src="../dist/js/bootValidator.js"></script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
- <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <meta name="viewport" content="width=device-width, initial-scale=1">
- <title>projeto final</title>
-
- <link href="css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body> 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-	 <div class="container-fluid">
-	  <div class="navbar-header">
-	   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-		<span class="sr-only">Toggle navigation</span>
-	   </button>
-	   <a class="navbar-brand" href="#">Tela Cadastro</a>
-	  </div>
-	 </div>
-	</nav>
-	<br/><br/>
-	
-	<div id="main" class="container-fluid">
-	 <h3 class="page-header">Cadastro Aluno</h3>
-	</div>
-	<form action="cadAluno.php">
-	
-		<div class="row">
-			<div class="form-group col-md-4">
-			   <label for="tMat">&emsp;Matricula</label>
-			   <input type="text" class="form-control" name="tMat" id="tMat" size="15" maxlength="15" required/><br/>
-			 </div>
-		
-			 <div class="form-group col-md-4">
-			   <label for="tNome">&emsp;Nome</label>
-			   <input type="text" class="form-control" name="tNome" id="tNome" size="80" maxlength="80" required/><br/>
-			 </div>
-			 
-			 <div class="form-group col-md-4">
-			   <label for="rSex">&emsp;Sexo<br/><br/></label>
-			   <input type="radio" name="rSex" id="rSex" value="M" required/>&emsp;Masculino
-			   <input type="radio" name="rSex" id="rSex" value="F" required/>&emsp;Feminino
-			 </div>
-	    </div>
-	  
-		<div class="row">
-			 <div class="form-group col-md-4">
-			   <label for="dtNasc">&emsp;Data de Nascimento</label>
-			   <input type="date" class="form-control" name="dtNasc" id="dtNasc" required/><br/>
-			 </div>
-			 
-			 <div class="form-group col-md-4">
-			   <label for="tCidade">&emsp;Cidade</label>
-			   <input type="text" class="form-control" name="tCidade" id="tCidade" size="40" maxlength="40" required/><br/>
-			 </div>
-		
-			 <div class="form-group col-md-4">
-			   <label for="tUf">&emsp;UF</label>
-			   <input type="text" class="form-control" name="tUf" id="tUf" size="8" maxlength="2" required/><br/>
-			 </div>
-			 
-		</div>
-	  
-	  <hr />
-	  
-	  <div id="actions" class="row">
-		<div class="col-md-12">
-		  &emsp;<button type="submit" class="btn btn-primary">Salvar</button>
-		  <a href="login.html" class="btn btn-default">Cancelar</a>
-		</div>
-	  </div>
-	</form>
-
- <script src="js/jquery.min.js"></script>
- <script src="js/bootstrap.min.js"></script>
-</body>
-</html>
->>>>>>> origin/master

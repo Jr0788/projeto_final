@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ﻿<?php
 	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
 	$con = pg_connect($strCon) or die ("Não foi possivel conectar ao servidor PostGreSQL"); 
@@ -19,13 +18,12 @@
     <meta name='description' content=''>
     <meta name='author' content=''>
     <title>Sistema Acadêmico</title>
-    <link href='../projeto/vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
-    <link href='../projeto/vendor/metisMenu/metisMenu.min.css' rel='stylesheet'>
-    <link href='../projeto/dist/css/sb-admin-2.css' rel='stylesheet'>
-    <link href='../projeto/vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
-    <link href='../projeto/vendor/bootstrapvalidator/dist/css/bootstrapValidator.css' rel='stylesheet'>
+    <link href='../vendor/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+    <link href='../vendor/metisMenu/metisMenu.min.css' rel='stylesheet'>
+    <link href='../dist/css/sb-admin-2.css' rel='stylesheet'>
+    <link href='../vendor/font-awesome/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+    <link href='../vendor/bootstrapvalidator/dist/css/bootstrapValidator.css' rel='stylesheet'>
 </head>
-
 <body>
     <div id='wrapper'>
         <nav class='navbar navbar-default navbar-static-top' role='navigation' style='margin-bottom: 0'>
@@ -52,7 +50,7 @@
                 <div class='sidebar-nav navbar-collapse'>
                     <ul class='nav' id='side-menu'>
                         <li>
-                            <a class='hvr-underline-from-center' href='index.html'><i class='fa fa-home fa-fw'></i> Home</a>
+                            <a class='hvr-underline-from-center' href='login.html'><i class='fa fa-home fa-fw'></i> Home</a>
                         </li>
                         <li>
                             <a class='hvr-underline-from-center' href='#'><i class='fa fa-edit fa-fw'></i> Cadastro<span class='fa arrow'></span></a>
@@ -82,45 +80,6 @@
                     <h1 class='page-header'>Alteração de aluno</h1>
                 </div>
             </div>";
-=======
-<?php
-	$strCon = "host='127.0.0.1' dbname='projetointegrador' port='5432' user='senac' password='senac123'";
-	$con = pg_connect($strCon) or die ("N�o foi possivel conectar ao servidor PostGreSQL"); 
-
-	$matr = isset($_GET["tMat"]) ? $_GET["tMat"] : null;
-	$nome = isset($_GET["tNome"]) ? $_GET["tNome"] : null;
-	$sexo = isset($_GET["rSex"]) ? $_GET["rSex"] : null;
-	$nasc = isset($_GET["dtNasc"]) ? $_GET["dtNasc"] : null;
-	$cida = isset($_GET["tCidade"]) ? $_GET["tCidade"] : null;
-	$esta = isset($_GET["tUf"]) ? $_GET["tUf"] : null;
-	
-	echo "<!DOCTYPE html>
-	<html lang=pt-br>
-		<head>
-			<meta http-equiv=X-UA-Compatible content=IE=edge>
-			<meta name=viewport content=width=device-width, initial-scale=1>
-			<title>projeto final</title>
-
-			<link href=css/bootstrap.min.css rel=stylesheet>
-		</head>
-		<body>
-			<nav class='navbar navbar-inverse navbar-fixed-top'>
-				<div class='container-fluid'>
-					<div class='navbar-header'>
-						<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
-							<span class='sr-only'>Toggle navigation</span>
-						</button>
-						<a class='navbar-brand' href='#'>Projeto Final</a>
-					</div>
-				</div>
-			</nav>
-			<br/><br/>
-			<div id=main class=container-fluid>
-			 <h3 class=page-header>Alteracao de Aluno</h3>
-			</div>
-			<div id=main class=container-fluid>
-				<br/>";
->>>>>>> origin/master
 				if($con){
 					$consulta = "SELECT * FROM aluno WHERE matricula = '" . $matr . "' ";
 					$resultado = pg_query($con, $consulta);
@@ -135,34 +94,54 @@
 							. $esta . "' WHERE matricula='"
 							. $matr . "'"; 
 						$resultado = pg_query($con, $comando);
-<<<<<<< HEAD
-						echo "<br/><br/>
+						echo "
 							<div class='row'>
 								<div class='col-lg-12'>
-									<h1 class='page-header'>Aluno alterado com sucesso!</h1>
+									<div class='jumbotron'>
+										<center>
+										  <h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
+										  <p>	Aluno alterado com sucesso!<br/><br/>
+										  </p>
+										</center>
+									</div>
 								</div>
 							</div>
 						";
 					}else{
-						echo "<br/><br/>
+						echo "
 							<div class='row'>
 								<div class='col-lg-12'>
-									<h1 class='page-header'>Aluno não encontrado.</h1><br/>
-									<h1 class='page-header'>Tente novamente.</h1>
+									<div class='jumbotron'>
+										<center>
+										  <h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
+										  <p>	Aluno não encontrado.<br/><br/>
+												Tente novamente.
+										  </p>
+										</center>
+									</div>
 								</div>
 							</div>
 						";
 					}
 				}else{
-					echo "<br/><br/>
+					echo "
+						<div id='page-wrapper'>
 							<div class='row'>
 								<div class='col-lg-12'>
-									<h1 class='page-header'>Não foi possível conectar com o banco.</h1>
+									<div class='jumbotron'>
+										<center>
+										  <h1><i class='fa fa-graduation-cap fa-3x'></i></h1>
+										  <p>	Não foi possível conectar com o banco.<br/><br/>
+												Tente novamente.
+										  </p>
+										</center>
+									</div>
 								</div>
 							</div>
-						";
+						</div>
+					";
 				}
-				echo "<br/>
+				echo "
 				<div class='row'>
 					<div class='col-xs-12'>
 						<a class='btn btn-danger btn3d' type='button' href='altAluno.html'>Voltar <i class='fa fa-times'></i></a>
@@ -171,37 +150,24 @@
 				</div>
 		</div>
     </div>
-    <script src='../projeto/vendor/jquery/jquery.min.js'></script>
-    <script src='../projeto/vendor/bootstrap/js/bootstrap.min.js'></script>
-    <script src='../projeto/vendor/metisMenu/metisMenu.min.js'></script>
-    <script src='../projeto/dist/js/sb-admin-2.js'></script>
-    <script src='../projeto/vendor/bootstrapvalidator/dist/js/bootstrapValidator.js'></script>
-	<script src='../projeto/dist/js/bootValidator.js'></script>
-</body>
-</html>";
-=======
-						echo "<br/><br/>";
-						echo "<h3 class=page-header><br/><br/>Aluno alterado com sucesso!</h3>";
-					}else{
-						echo "<br/><br/>";
-						echo "<h3 class=page-header>&emsp;&emsp;Aluno nao encontrado.</h3>";
-						echo "<h3 class=page-header>&emsp;&emsp;Tente novamente.</h3>";
-					}
-				}else{
-					echo "<br/>
-					<h3 class=page-header>&emsp;&emsp;<br/><br/>N�o foi poss�vel conectar com o banco.</h3>";
-				}
-				echo "<br/>
-				<div id=actions class=row>
-					<div class=col-md-12>
-						<a href=altAluno.html class='btn btn-default'>Voltar</a>
-						<a href=login.html class='btn btn-default'>Pagina Inicial</a>
-					</div>
+	
+	<div class='container'>
+		<div class='row'>
+			<hr>
+			<div class='col-lg-12'>
+				<div class='col-md-12'>
+					<p class='muted pull-right'>© 2016 Sistema Acadêmico. All rights reserved</p>
 				</div>
 			</div>
-			<script src='js/jquery.min.js'></script>
-			<script src='js/bootstrap.min.js'></script>
-		</body>
-	</html>";
->>>>>>> origin/master
+		</div>
+	</div>
+	
+    <script src='../vendor/jquery/jquery.min.js'></script>
+    <script src='../vendor/bootstrap/js/bootstrap.min.js'></script>
+    <script src='../vendor/metisMenu/metisMenu.min.js'></script>
+    <script src='../dist/js/sb-admin-2.js'></script>
+    <script src='../vendor/bootstrapvalidator/dist/js/bootstrapValidator.js'></script>
+	<script src='../dist/js/bootValidator.js'></script>
+</body>
+</html>";
 ?>

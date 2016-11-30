@@ -8,23 +8,16 @@
     <meta name="author" content="">
 
     <title>Sistema Acadêmico</title>
-    <!-- Bootstrap Core CSS -->
+
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-    <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<!-- iCheck -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-	<!-- bootstrapValidator -->
     <link href="../vendor/bootstrapvalidator/dist/css/bootstrapValidator.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="wrapper">
-        <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -32,9 +25,7 @@
                 </button>
                 <a class="navbar-brand" href="login.html">Sistema Acadêmico</a>
             </div>
-            <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-                <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="hvr-underline-from-center" class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -45,145 +36,103 @@
                         <li class="divider"></li>
                         <li><a class="hvr-shutter-out-horizontal" href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
                     </ul>
-                    <!-- /.dropdown-user -->
                 </li>
-                <!-- /.dropdown -->
             </ul>
-            <!-- /.navbar-top-links -->
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li><a class="hvr-underline-from-center" href="login.html"><i class="fa fa-home fa-fw"></i> Home</a></li>
-                        <li>
-                            <a class="hvr-underline-from-center" href="#"><i class="fa fa-edit fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
+                        <li><a class="hvr-underline-from-center" href="index.html"><i class="fa fa-home fa-fw"></i> Home</a></li>
+                        <li><a class="hvr-underline-from-center" href="#"><i class="fa fa-edit fa-fw"></i> Cadastro<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
 								<li><a class='hvr-shutter-out-horizontal' href='cadUsuario.html'>Usuário</a></li>
 								<li><a class='hvr-shutter-out-horizontal' href='cadAluno.html'>Aluno</a></li>
 								<li><a class='hvr-shutter-out-horizontal' href='cadCurso.html'>Curso</a></li>
 								<li><a class='hvr-shutter-out-horizontal' href='cadDisciplina.html'>Disciplina</a></li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
-						<li>
-							<a class='hvr-underline-from-center' href='#'><i class='fa fa-wrench fa-fw'></i> Alteração<span class='fa arrow'></span></a>
+						<li><a class='hvr-underline-from-center' href='#'><i class='fa fa-wrench fa-fw'></i> Alteração<span class='fa arrow'></span></a>
 							<ul class='nav nav-second-level'>
 								<li><a class='hvr-shutter-out-horizontal' href='altUsuario.html'>Usuário</a></li>
 								<li><a class='hvr-shutter-out-horizontal' href='altAluno.html'>Aluno</a></li>
 								<li><a class='hvr-shutter-out-horizontal' href='altCurso.html'>Curso</a></li>
 								<li><a class='hvr-shutter-out-horizontal' href='altDisciplina.html'>Disciplina</a></li>
 							</ul>
-                            <!-- /.nav-second-level -->
+                        </li>
+						<li><a class='hvr-underline-from-center' href='#'><i class='fa fa-wrench fa-fw'></i> Relatórios<span class='fa arrow'></span></a>
+							<ul class='nav nav-second-level'>
+								<li><a class='hvr-shutter-out-horizontal' href='relNotAluno.html'>Nota/Aluno</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='relProjSem.html'>Projeto/Semestre</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='relGrupo.html'>Grupo/Curso</a></li>
+								<li><a class='hvr-shutter-out-horizontal' href='relProjAluno.html'>Projeto/Aluno</a></li>
+							</ul>
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
             </div>
-            <!-- /.navbar-static-side -->
         </nav>
-        <div id="page-wrapper">
+		
+		<!-- Emitir relação de aluno de um curso com sua respectiva nota. 
+			É necessário escolher o curso, o ano e o semestre para imprimir o relatório. 
+			No relatório devem ser mostrados esses dados, a matrícula do aluno, nome do aluno e nota do aluno. 
+			Exibir em ordem alfabética.-->
+		
+		
+		<div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Alteração de usuário</h1>
+                    <h1 class="page-header">Relação de alunos e notas por curso</h1>
                 </div>
-                <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
             <div class="row">
-			<form id="alt_user" method="post" action="altUsuario.php">
+			<form id="rel_aluno" method="post" action="relNotAluno.php">
                 <div class="col-lg-7">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Informe login do usuário:
+                            Informe dados do relatório:
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="tLogin">Login *</label>
-												<input type="text" class="form-control" name="tLogin" id="tLogin" size="30" maxlength="20" required/>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-xs-3">
+												<label class="control-label" for="nNum">Número Curso*</label>
+												<input type="number" class="form-control" name="nNum" id="nNum" min="000" max="999" required/>
 											</div>
-										</div>
-									</div>
-                                </div>
-                            </div>
-                            <!-- /.row (nested) -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                </div>
-				<div class="col-lg-7">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Altere os campos desejados:
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-									<div class="row">
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="tSenha">Senha *</label>
-												<input type="text" class="form-control" name="tSenha" id="tSenha" size="50" maxlength="50" required/>
+											<div class="col-xs-3">
+												<label class="control-label" for="nAno">Ano *</label>
+												<input type="number" class="form-control" name="nAno" id="nAno" min="2010" max="2050" required/>
 											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<div class="form-group">
-												<label for="tNome">Nome *</label>
-												<input type="text" class="form-control" name="tNome" id="tNome" size="80" maxlength="80" required/>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="rCat">Categoria *</label>
-												<select class="form-control" name="rCat" id="rCat">
-													<option selected="selected" value="" disabled>-- Selecione uma categoria --</option>
-													<option value="C">Coordenador</option>
-													<option value="G">Gerente PI</option>
-													<option value="P">Professor</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label for="rSit">Situação *</label>
+											<div class="col-xs-3">
+												<label for="nSem">Semestre *</label>
 												<div class="radio">
 													<label>
-														<input type="radio" name="rSit" id="rSit" value="A" required/>Ativo
+														<input type="radio" name="nSem" id="nSem" value="1" required/>Primeiro
 													</label>
 												</div>
 												<div class="radio">
 													<label>
-														<input type="radio" name="rSit" id="rSit" value="I" required/>Inativo
+														<input type="radio" name="nSem" id="nSem" value="2" required/>Segundo
 													</label>
 												</div>
 											</div>
 										</div>
-									</div><br>
+									</div>
 									<div class="row">
-										<div class="col-md-12">
-											<button type="submit" class="btn btn-info btn3d">Gravar <i class="fa fa-floppy-o"></i></button>
+										<div class="col-xs-12">
+											<button type="submit" class="btn btn-info btn3d">Gerar <i class="fa fa-floppy-o"></i></button>
 											<a class="btn btn-danger btn3d" type="button" href="login.html">Cancelar <i class="fa fa-times"></i></a>
 										</div>
 									</div>
-                                </div>
+								</div>	
                             </div>
-                            <!-- /.row (nested) -->
                         </div>
-                        <!-- /.panel-body -->
                     </div>
-                    <!-- /.panel -->
                 </div>
-                <!-- /.col-lg-12 -->
 			</form>
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /#page-wrapper -->
+			</div>
+		</div>
+		
     </div>
 	
 	<div class="container">
@@ -197,18 +146,10 @@
 	  </div>
 	</div>
 	
-    <!-- /#wrapper -->
-    <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Plugin JavaScript -->
     <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-	<!-- iCheck -->
-    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
-    <!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
-	<!-- bootstrapValidator -->
     <script src="../vendor/bootstrapvalidator/dist/js/bootstrapValidator.js"></script>
 	<script src="../dist/js/bootValidator.js"></script>
 </body>
